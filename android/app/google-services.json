@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "909250604148",
+    "project_id": "fir-study-3ef93",
+    "storage_bucket": "fir-study-3ef93.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909250604148:android:5e2fead080aa95eeecb521",
+        "android_client_info": {
+          "package_name": "com.brujah.firebase_auth_study"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "909250604148-ongk70gkupasvjkv1a8irl1aej3u0jo4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbu-hJC4M-HgomQwM51abDCWN73gsQvK0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "909250604148-ongk70gkupasvjkv1a8irl1aej3u0jo4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "909250604148-4stokr1oh7e3umit4sa9087a5f7snfsf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.brujah.firebaseAuthStudy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
