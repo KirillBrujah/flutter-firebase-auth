@@ -54,6 +54,7 @@ class DefaultFirebaseOptions {
     appId: '1:909250604148:android:5e2fead080aa95eeecb521',
     messagingSenderId: '909250604148',
     projectId: 'fir-study-3ef93',
+    databaseURL: 'https://fir-study-3ef93-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'fir-study-3ef93.appspot.com',
   );
 
@@ -62,6 +63,7 @@ class DefaultFirebaseOptions {
     appId: '1:909250604148:ios:55ca1e3cdfaeafcfecb521',
     messagingSenderId: '909250604148',
     projectId: 'fir-study-3ef93',
+    databaseURL: 'https://fir-study-3ef93-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'fir-study-3ef93.appspot.com',
     iosClientId: '909250604148-4stokr1oh7e3umit4sa9087a5f7snfsf.apps.googleusercontent.com',
     iosBundleId: 'com.brujah.firebaseAuthStudy',

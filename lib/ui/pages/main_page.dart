@@ -8,7 +8,13 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocProvider(create: (_) => FirebaseLoginCubit(), child: _Body()),
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_) => FirebaseLoginCubit()),
+          BlocProvider(create: (context) => FirebaseDbCubit()),
+        ],
+        child: const _Body(),
+      ),
     );
   }
 }
@@ -24,8 +30,7 @@ class _Body extends StatelessWidget {
           child: BlocBuilder<FirebaseLoginCubit, FirebaseLoginState>(
             builder: (context, state) => state.when(
               notAuthorized: () => const Center(child: Text("Not Authorized")),
-              authorized: (user) =>
-                  Center(child: Text(user.uid)),
+              authorized: (user) => Center(child: Text(user.uid)),
             ),
           ),
         ),
