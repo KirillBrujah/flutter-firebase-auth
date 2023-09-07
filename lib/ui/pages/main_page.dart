@@ -11,9 +11,12 @@ class MainPage extends StatelessWidget {
       body: MultiBlocProvider(
         providers: [
           BlocProvider(create: (_) => FirebaseLoginCubit()),
-          BlocProvider(create: (context) => FirebaseDbCubit()),
         ],
-        child: const _Body(),
+        child: BlocProvider(
+          create: (context) =>
+              FirebaseDbCubit(loginCubit: context.read<FirebaseLoginCubit>()),
+          child: const _Body(),
+        ),
       ),
     );
   }
@@ -31,6 +34,14 @@ class _Body extends StatelessWidget {
             builder: (context, state) => state.when(
               notAuthorized: () => const Center(child: Text("Not Authorized")),
               authorized: (user) => Center(child: Text(user.uid)),
+            ),
+          ),
+        ),
+        Expanded(
+          child: BlocBuilder<FirebaseDbCubit, FirebaseDbState>(
+            builder: (context, state) => state.when(
+              initial: () => const Text("DB IS INITIAL"),
+              loaded: (data) => Text("Name = ${data["name"]}"),
             ),
           ),
         ),

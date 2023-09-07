@@ -29,14 +29,14 @@ class FirebaseLoginCubit extends Cubit<FirebaseLoginState> {
 
     await _auth.signInWithEmailAndPassword(
       email: "test@gmail.com",
-      password: "test",
+      password: "testpassword",
     );
   }
 
   Future<void> register() async {
     await _auth.createUserWithEmailAndPassword(
       email: "test@gmail.com",
-      password: "test",
+      password: "testpassword",
     );
   }
 
