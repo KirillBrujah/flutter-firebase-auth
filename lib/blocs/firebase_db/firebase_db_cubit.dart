@@ -21,21 +21,23 @@ class FirebaseDbCubit extends Cubit<FirebaseDbState> {
     authStream = loginCubit.stream.listen(_loginListener);
   }
 
+  String? _uid;
+
   void _loginListener(FirebaseLoginState state) {
     state.when(
       notAuthorized: () {
         emit(const FirebaseDbState.initial());
       },
       authorized: (user) {
-        // _createUser(user.uid);
-        _getData(user.uid);
+        _uid = user.uid;
+        _getData();
       },
     );
   }
 
-  Future<void> _getData(String uid) async {
+  Future<void> _getData() async {
     emit(const FirebaseDbState.initial());
-    final snapshot = await _database.ref("users/$uid").get();
+    final snapshot = await _database.ref("users/$_uid").get();
 
     if (snapshot.exists) {
       // print(snapshot.value as Map);
@@ -43,10 +45,11 @@ class FirebaseDbCubit extends Cubit<FirebaseDbState> {
     }
   }
 
-  Future<void> _createUser(String uid) async {
-    final ref = _database.ref("users/$uid");
+  Future<void> createUser() async {
+    final ref = _database.ref("users/$_uid");
     await ref.set({
-      "name": "Brujah_$uid",
+      "name": "Brujah_$_uid",
     });
+    _getData();
   }
 }
